@@ -1,0 +1,121 @@
+E:\ASIR 6M\Luciana>git log
+commit 059c2e03a75c5324f5ec263299e2705fa396c0d9 (HEAD -> main)
+Author: unknown <you@example>
+Date:   Fri Oct 1 19:22:04 2021 +0200
+
+    v3
+
+commit 9693039c2a7d914a1f34e466bea6855ceefae8d5
+Author: unknown <you@example>
+Date:   Fri Oct 1 19:11:34 2021 +0200
+
+    v2
+
+commit 63f0efb35994a4e8aa1e234668a16526f9e399dc
+Author: unknown <you@example>
+Date:   Fri Oct 1 19:07:32 2021 +0200
+
+    v1
+
+E:\ASIR 6M\Luciana>git log --graph --oneline --all
+* 059c2e0 (HEAD -> main) v3
+* 9693039 v2
+* 63f0efb v1
+
+E:\ASIR 6M\Luciana>git checkout 9693039
+Note: switching to '9693039'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at 9693039 v2
+
+E:\ASIR 6M\Luciana>git log --graph --oneline --all
+* 059c2e0 (main) v3
+* 9693039 (HEAD) v2
+* 63f0efb v1
+
+E:\ASIR 6M\Luciana>git branch branch1
+
+E:\ASIR 6M\Luciana>git log --graph --oneline --all
+* 059c2e0 (main) v3
+* 9693039 (HEAD, branch1) v2
+* 63f0efb v1
+
+E:\ASIR 6M\Luciana>git add .
+
+E:\ASIR 6M\Luciana>git commit -m v5
+[detached HEAD eecb9d2] v5
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+E:\ASIR 6M\Luciana>git log --graph --oneline --all
+* eecb9d2 (HEAD) v5
+| * 059c2e0 (main) v3
+|/
+* 9693039 (branch1) v2
+* 63f0efb v1
+
+E:\ASIR 6M\Luciana>git checkout main
+Warning: you are leaving 1 commit behind, not connected to
+any of your branches:
+
+  eecb9d2 v5
+
+If you want to keep it by creating a new branch, this may be a good time
+to do so with:
+
+ git branch <new-branch-name> eecb9d2
+
+Switched to branch 'main'
+
+E:\ASIR 6M\Luciana>git log --graph --oneline --all
+* 059c2e0 (HEAD -> main) v3
+* 9693039 (branch1) v2
+* 63f0efb v1
+
+E:\ASIR 6M\Luciana>git checkout branch1
+Switched to branch 'branch1'
+
+E:\ASIR 6M\Luciana>git log --graph --oneline --all
+* 059c2e0 (main) v3
+* 9693039 (HEAD -> branch1) v2
+* 63f0efb v1
+
+E:\ASIR 6M\Luciana>git add .
+
+E:\ASIR 6M\Luciana>git commit -m v1
+[branch1 9c1a9ae] v1
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+E:\ASIR 6M\Luciana>git log --graph --oneline --all
+* 9c1a9ae (HEAD -> branch1) v1
+| * 059c2e0 (main) v3
+|/
+* 9693039 v2
+* 63f0efb v1
+
+E:\ASIR 6M\Luciana>git add .
+
+E:\ASIR 6M\Luciana>git commit -m carlitos
+[branch1 c891bef] carlitos
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+E:\ASIR 6M\Luciana>git log --graph --oneline --all
+* c891bef (HEAD -> branch1) carlitos
+* 9c1a9ae v1
+| * 059c2e0 (main) v3
+|/
+* 9693039 v2
+* 63f0efb v1
